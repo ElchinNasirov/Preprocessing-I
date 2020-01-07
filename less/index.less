@@ -57,3 +57,192 @@ html, body {
     height: 100%;
 }
 
+
+
+// my code ---------------------
+
+@backgroundHeader: #faf4e1;   //yellowish color
+@backgroundFooter: #fa9f98;    //pinkish color
+@mobile: ~"(max-width: 500px)";
+
+
+.displayFlex(@direction, @justify, @align){
+	display: flex;
+	flex-direction: @direction;
+	justify-content: @justify;
+	align-items: @align;
+}
+
+.center(){
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.container { 
+	width: 900px;
+	margin: auto;
+
+	@media @mobile {
+		width: 98%;
+		margin: auto;
+	}
+}
+
+h1 {
+	font-size: 3rem;
+
+	@media @mobile {
+		font-size: 2.5rem;
+	}
+}
+
+h2 {
+	font-size: 1.5rem;
+} 
+
+h3 {
+	font-size: 1.17rem;
+} 
+
+header nav {
+	display: flex;
+	justify-content: flex-end;
+
+	@media @mobile {
+		.displayFlex(row, space-around, center);
+	}
+
+	a {
+		text-decoration: none;
+		padding: 2% 0 2% 4%;
+		color: black;
+	}
+}
+
+
+.intro {
+	background: @backgroundHeader;
+	.displayFlex(column, center, space-between);
+	flex-wrap: wrap;
+	padding: 3%;
+	border-radius: 10px;
+
+
+	img {
+		width: 60%;
+
+		@media @mobile {
+			display: block;
+  			margin-left: auto;
+  			margin-right: auto;
+		}
+	}
+
+	p {
+		border-top: solid black 1px;
+		margin: 2% 0;
+		padding: 2% 0;
+	}
+
+	.btn{
+
+		@media @mobile {
+			.center;
+		}
+	}
+
+	button {
+		width: 15%;
+		padding: 1%;
+		border-radius: 10px;
+		background-color: teal;
+		color: white;
+		cursor: pointer;
+	  
+		&:hover {
+		  background-color: darken(teal, 15%)
+		}
+	}
+}
+
+
+.skills {
+	.displayFlex(row, flex-start, flex-start);
+	
+	.text-part { 
+		width: 50%;
+		padding: 2% 2% 2% 0;
+
+		@media @mobile {
+			width: 98%;
+			padding: 2% 2% 2% 0;
+			font-family: 'Codystar';
+		}
+
+		P {
+			line-height: 1.5;
+		}
+	}
+
+	.hobby-part {
+		width: 50%;
+		padding: 2% 0 2% 2%;
+
+		@media @mobile {
+			padding: 2% 0 2% 0;
+			width: 98%;
+		}
+		
+		table, td, th {  
+			border: 1px solid #ddd;
+			text-align: left;
+			padding: 3%;
+		}
+		
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top: 3%;
+		}
+	}
+
+	@media @mobile {
+		.displayFlex(column, center, center);
+	}
+}
+
+.work-history {
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		margin: 2% 0;
+
+		@media @mobile {
+			width: 98%;
+			padding: 2%;
+		}
+		
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding: 8px;
+		}
+		
+		tr:nth-child(even) {
+			background-color: #dddddd;
+		}
+	}
+}
+
+.contact {
+	background: @backgroundFooter;
+	text-align: center;
+	padding: 4%;
+	color: white;
+
+	@media @mobile {
+		width: 98%;
+	}
+}
